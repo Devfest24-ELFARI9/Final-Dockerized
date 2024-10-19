@@ -7,3 +7,9 @@
 [submodule "dashboard"]
 	path = dashboard
 	url = git@github.com:Devfest24-ELFARI9/dashboard.git
+[submodule "Alert-service"]
+	path = Alert-service
+	url = git@github.com:Devfest24-ELFARI9/Alert-service.git
+[submodule "Production-monitoring-service"]
+	path = Production-monitoring-service
+	url = git@github.com:Devfest24-ELFARI9/Production-monitoring-service.git

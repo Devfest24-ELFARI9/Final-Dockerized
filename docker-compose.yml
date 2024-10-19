@@ -41,7 +41,7 @@ services:
         - /usr/src/app/node_modules
       environment:
         GATEWAY_URL: http://gateway:8080/api/sensor-data/ 
-        NEXT_PUBLIC_WEBSOCKET_URL: ws://gateway:8080/
+        NEXT_PUBLIC_WEBSOCKET_URL: ws://localhost:8080/
 
   psql:
         image: postgres:alpine3.20

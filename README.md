@@ -7,8 +7,8 @@ git clone --recurse-submodules git@github.com:Devfest24-ELFARI9/Final-Dockerized
 
 
 
-Make sure to create an ngrok connection
+Make sure to migrate
 - go to 
 ```
-
+dokcer exec -it devfestproject_dashboard_1 npx prisma migrate dev
 ```

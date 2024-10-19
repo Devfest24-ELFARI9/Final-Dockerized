@@ -1,0 +1,18 @@
+version: "3.8"
+
+services:
+  data-ingestion:
+    build: ./Sensor-Data-Ingestion-Service
+    depends_on:
+      - rabbitmq
+    environment:
+      RABBITMQ_URL: amqp://guest:guest@rabbitmq
+    command: npm run start
+  rabbitmq:
+    image: rabbitmq:management
+    ports:
+      - "5672:5672" # RabbitMQ default port
+      - "15672:15672" # RabbitMQ management UI
+    environment:
+      RABBITMQ_DEFAULT_USER: guest
+      RABBITMQ_DEFAULT_PASS: guest

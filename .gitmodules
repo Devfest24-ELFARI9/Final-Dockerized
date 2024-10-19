@@ -1,0 +1,6 @@
+[submodule "Sensor-Data-Ingestion-Service"]
+	path = Sensor-Data-Ingestion-Service
+	url = git@github.com:Devfest24-ELFARI9/Sensor-Data-Ingestion-Service.git
+[submodule "API_gateway"]
+	path = API_gateway
+	url = git@github.com:Devfest24-ELFARI9/API_gateway.git

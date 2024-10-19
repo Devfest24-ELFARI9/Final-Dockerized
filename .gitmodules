@@ -4,3 +4,6 @@
 [submodule "API_gateway"]
 	path = API_gateway
 	url = git@github.com:Devfest24-ELFARI9/API_gateway.git
+[submodule "dashboard"]
+	path = dashboard
+	url = git@github.com:Devfest24-ELFARI9/dashboard.git

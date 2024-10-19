@@ -30,3 +30,29 @@ services:
       RABBITMQ_URL: amqp://guest:guest@rabbitmq
     command: node server.js
 
+  dashboard:
+      build: ./dashboard
+      depends_on:
+        - gateway
+      ports:
+        - "80:3000"
+      volumes:
+        - ./dashboard:/usr/src/app
+        - /usr/src/app/node_modules
+      environment:
+        GATEWAY_URL: http://gateway:8080/api/sensor-data/ 
+        NEXT_PUBLIC_WEBSOCKET_URL: ws://gateway:8080/
+
+  psql:
+        image: postgres:alpine3.20
+        ports:
+          - "5555:5432"
+        environment:
+          POSTGRES_USER: test
+          POSTGRES_PASSWORD: test
+          POSTGRES_DB: test
+
+        volumes:
+          - ./pg-db:/var/lib/postgresql/data
+       
+

@@ -6,8 +6,10 @@ services:
     depends_on:
       - rabbitmq
     environment:
+      NGROK_URL: https://ee68-41-220-146-91.ngrok-free.app/api/sensor-data/
       RABBITMQ_URL: amqp://guest:guest@rabbitmq
     command: npm run start
+  
   rabbitmq:
     image: rabbitmq:management
     ports:
@@ -16,3 +18,15 @@ services:
     environment:
       RABBITMQ_DEFAULT_USER: guest
       RABBITMQ_DEFAULT_PASS: guest
+    
+  gateway:
+    build: ./API_gateway
+    depends_on:
+      - data-ingestion
+    ports:
+      - "8080:8080"
+    environment:
+      DATA_INGESTION_URL: http://data-ingestion:3001/api/sensor-data/
+      RABBITMQ_URL: amqp://guest:guest@rabbitmq
+    command: node server.js
+
